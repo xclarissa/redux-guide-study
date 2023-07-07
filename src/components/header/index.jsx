@@ -35,8 +35,7 @@ function Header() {
           <div onClick={handleLogoutClick}>Sair</div>
         ) : (
           <div onClick={handleLoginClick}>Login</div>
-        )}
-        <div onClick={handleLoginClick}>Login</div>
+        )} 
         <div onClick={handleCartClick}>Carrinho</div>
       </Styles.Buttons>
 
