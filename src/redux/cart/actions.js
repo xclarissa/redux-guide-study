@@ -7,7 +7,22 @@ const addProductToCart = (payload) => ({
 
 const removeProductToCart = (payload) => ({
   type: CartActionTypes.REMOVE_PRODUCT,
-  payload
-})
+  payload,
+});
 
-export { addProductToCart, removeProductToCart };
+const increaseProductToCart = (payload) => ({
+  type: CartActionTypes.INCREASE_PRODUCT,
+  payload,
+});
+
+const decreaseProductToCart = (payload) => ({
+  type: CartActionTypes.DECREASE_PRODUCT,
+  payload,
+});
+
+export {
+  addProductToCart,
+  removeProductToCart,
+  decreaseProductToCart,
+  increaseProductToCart,
+};
