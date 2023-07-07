@@ -12,7 +12,7 @@ const cartReducer = (state = initialState, action) => {
       const productIsAlreadyInCart = state.products.some(
         (product) => product.id === action.payload.id
       );
- 
+
       // se estiver, aumentar a quantidade em um
       if (productIsAlreadyInCart) {
         return {
@@ -30,7 +30,13 @@ const cartReducer = (state = initialState, action) => {
         products: [...state.products, { ...action.payload, quantity: 1 }],
       };
 
-    // return { ...state, products: [...state.products, action.payload] };
+    case CartActionTypes.REMOVE_PRODUCT:
+      return {
+        ...state,
+        products: state.products.filter(
+          (product) => product.id !== action.payload
+        ),
+      };
 
     default:
       return state;

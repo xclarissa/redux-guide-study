@@ -5,6 +5,9 @@ const addProductToCart = (payload) => ({
   payload,
 });
 
-const removeProductToCart = () => {};
+const removeProductToCart = (payload) => ({
+  type: CartActionTypes.REMOVE_PRODUCT,
+  payload
+})
 
 export { addProductToCart, removeProductToCart };
