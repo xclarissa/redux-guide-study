@@ -3,12 +3,13 @@ import { useSelector } from "react-redux";
 import CartItem from "../cart-item/index";
 // Styles
 import * as Styles from "./styles";
+import { selectProductsTotalPrice } from "../../redux/cart/cart-selectors";
 
 const Cart = ({ isVisible, setIsVisible }) => {
   const handleEscapeAreaClick = () => setIsVisible(false);
 
   const { products } = useSelector((rootReducer) => rootReducer.cartReducer);
-  console.log(products);
+  const productTotalPrice = useSelector(selectProductsTotalPrice);
 
   return (
     <Styles.CartContainer isVisible={isVisible}>
@@ -18,6 +19,7 @@ const Cart = ({ isVisible, setIsVisible }) => {
         {products.map((product) => (
           <CartItem key={product.id} product={product} />
         ))}
+        <Styles.CartTotal>Total: R${productTotalPrice}</Styles.CartTotal>
       </Styles.CartContent>
     </Styles.CartContainer>
   );
